@@ -5,6 +5,7 @@ import ListShelfs from './ListShelfs'
 import SearchBooks from './SearchBooks'
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 
 class BooksApp extends React.Component {
@@ -45,6 +46,7 @@ class BooksApp extends React.Component {
   updateBooks = (book,shelf) => {
     BooksAPI.update(book, shelf).then(() =>{
       this.getBooks()
+      this.props.history.push("/");
     })
   }
   updateQuery = (query) => {
@@ -83,4 +85,4 @@ class BooksApp extends React.Component {
 }
 
 
-export default BooksApp
+export default withRouter ( BooksApp)

@@ -10,13 +10,11 @@ class ListBooks extends Component{
 
 	change(book,e){
 		const shelf =  e.target.value;
-		//console.log(book, e)
-		//console.log(this.props.onChageShelf())
 		this.props.onChangeShelf(book, shelf)
 	}
 	render(){
 		//console.log('list books props', this.props)
-		//console.log(this.props.shelf)
+		//console.log(this.props.booklist)
 		return(
 			<ol className='books-grid'>
 				{this.props.booklist.map((b) => (
@@ -25,7 +23,7 @@ class ListBooks extends Component{
 							<div className='book-top'>
 								<div className='book-cover' style={{ width: 128, height: 193, backgroundImage:`url(${b.imageLinks.thumbnail})`}}></div>
 								<div className='book-shelf-changer'>
-									<select onChange={(e) => this.change(b,e)}>
+									<select onChange={(e) => this.change(b,e)} value={b.shelf}>
 										<option value="move" disabled>Move to...</option>
 										<option value="currentlyReading">Currently Reading</option>
 										<option value="wantToRead">Want to Read</option>

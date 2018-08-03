@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 class SearchBooks extends React.Component {
   state = {
     searchresult:[],
-    books:[],
+    books: [],
     query: ''
   }
   updateQuery = (query) => {
@@ -20,6 +20,7 @@ class SearchBooks extends React.Component {
   }
 
   render() { 
+    console.log(this.state.books)
     let showingBooks
 
     if(this.state.query){
@@ -27,7 +28,7 @@ class SearchBooks extends React.Component {
       showingBooks = this.state.searchresult.filter((book) => match.test(book.title))
 
     }else{
-      showingBooks = this.state.books
+      showingBooks = this.props.booklist
     } 
     return (
       <div>
