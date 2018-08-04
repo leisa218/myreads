@@ -31,7 +31,6 @@ class BooksApp extends React.Component {
         'title': 'Read'
       }
     ],
-    searchresult:[],
     books: [],
     query: ''
   }
@@ -49,13 +48,6 @@ class BooksApp extends React.Component {
       this.props.history.push("/");
     })
   }
-  updateQuery = (query) => {
-    this.setState({ query: query.trim() })
-    BooksAPI.search(query).then((books) => {
-      this.setState({searchresult: books})
-    })
-  }
-
   render() {
     return (
       <div className="app">

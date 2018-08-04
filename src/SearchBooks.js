@@ -12,15 +12,32 @@ class SearchBooks extends React.Component {
     books: [],
     query: ''
   }
+
+  addBookShelfToSearchResult = (books) => {
+    let all_Books = this.props.booklist
+    for (let book of books) {
+      book.shelf = "none"
+    }
+
+    for (let book of books) {
+      for (let b of all_Books) {
+        if (b.id === book.id) {
+          book.shelf = b.shelf
+        }
+      }
+    }
+    return books
+  } 
+
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
-    BooksAPI.search(query).then((books) => {
+    BooksAPI.search(query,20).then((books) => {
+      books = this.addBookShelfToSearchResult(books)
       this.setState({searchresult: books})
     })
   }
 
   render() { 
-    console.log(this.state.books)
     let showingBooks
 
     if(this.state.query){
