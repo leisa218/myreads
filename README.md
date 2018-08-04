@@ -8,6 +8,7 @@ Based on a starter code we should create a MyReads App.
 
 ## Install
 - Clone this respository
+- cd into myreads directory
 - Run npm install in the root directory
 - Run npm start to start the server
 - Run the App on https://localhost:3000
