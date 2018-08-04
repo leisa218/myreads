@@ -6,12 +6,16 @@ Based on a starter code we should create a MyReads App.
 
 ## 
 
-## Install
+## Install 
 - Clone this respository
 - cd into myreads directory
 - Run npm install in the root directory
 - Run npm start to start the server
-- Run the App on https://localhost:3000
+- React will open the App on https://localhost:3000
+
+## Run Application from build
+- Copy build folder from this repository to your server or a local webserver
+- Open the index.html file in the build folder
 
 ## Features and Goals
 
