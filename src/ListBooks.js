@@ -13,8 +13,6 @@ class ListBooks extends Component{
 		this.props.onChangeShelf(book, shelf)
 	}
 	render(){
-		//console.log('list books props', this.props)
-		//console.log(this.props.booklist)
 		return(
 			<ol className='books-grid'>
 				{this.props.booklist.map((b) => (

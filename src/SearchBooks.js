@@ -31,18 +31,22 @@ class SearchBooks extends React.Component {
 
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
-    BooksAPI.search(query,20).then((books) => {
-      books = this.addBookShelfToSearchResult(books)
-      this.setState({searchresult: books})
-    })
+    if(query && query !== ''){
+      BooksAPI.search(query, 20).then((books) => {
+        books = this.addBookShelfToSearchResult(books)
+        this.setState({searchresult: books})
+      })
+    }else{
+      this.setState({query: ''})
+    }
   }
 
   render() { 
     let showingBooks
 
-    if(this.state.query){
+    if(this.state.query && this.state.query !== ''){
       const match = new RegExp(escaepRegExp(this.state.query, 'i'))
-      showingBooks = this.state.searchresult.filter((book) => match.test(book.title))
+      showingBooks = this.state.searchresult.filter((book) => match.test( book.title ))
 
     }else{
       showingBooks = this.props.booklist

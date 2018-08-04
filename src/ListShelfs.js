@@ -16,7 +16,6 @@ class ListShelfs extends Component{
 	}
 
 	render(){
-		//console.log('shelf props', this.props)
 		return(
 			<div>
 			{this.props.shelfs.map((shelf) =>(
