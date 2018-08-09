@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import BooksCover from './BooksCover'
 
 
 class ListBooks extends Component{ 
@@ -19,7 +20,7 @@ class ListBooks extends Component{
 					<li key={b.id}>
 						<div className='book'>
 							<div className='book-top'>
-								<div className='book-cover' style={{ width: 128, height: 193, backgroundImage:`url(${b.imageLinks.thumbnail})`}}></div>
+								<BooksCover cover={b.imageLinks}/>
 								<div className='book-shelf-changer'>
 									<select onChange={(e) => this.change(b,e)} value={b.shelf}>
 										<option value="move" disabled>Move to...</option>

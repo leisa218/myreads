@@ -2,7 +2,6 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import ListBooks from './ListBooks'
-import escaepRegExp from 'escape-string-regexp'
 import { Link } from 'react-router-dom'
 
 
@@ -45,8 +44,9 @@ class SearchBooks extends React.Component {
     let showingBooks
 
     if(this.state.query && this.state.query !== ''){
-      const match = new RegExp(escaepRegExp(this.state.query, 'i'))
-      showingBooks = this.state.searchresult.filter((book) => match.test( book.title ))
+      //const match = new RegExp(escaepRegExp(this.state.query, 'i'))
+      //showingBooks = this.state.searchresult.filter((book) => match.test( book.title ))
+      showingBooks = this.state.searchresult.filter((book) => book.title || book.subtitle)
 
     }else{
       showingBooks = this.props.booklist
