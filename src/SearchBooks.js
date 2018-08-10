@@ -26,22 +26,19 @@ class SearchBooks extends React.Component {
           }
         }
       }
-
       return books
-
-    }else{
-      this.setState({query: ''})
     }
   } 
 
   updateQuery = (query) => {
-    this.setState({ query: query.trim() })
+    this.setState({query: query})
     if(query && query !== ''){
       BooksAPI.search(query, 20).then((books) => {
         books = this.addBookShelfToSearchResult(books)
         this.setState({searchresult: books})
       })
     }else{
+      console.log('in updatequery')
       this.setState({query: ''})
     }
   }
