@@ -31,8 +31,8 @@ class ListBooks extends Component{
 									</select>
 								</div>
 							</div>
-							<div className='book-title'>{b.title}</div>
-							<div className='book-author'>{b.author}</div>
+							<div className='book-title'><strong>Title: </strong>{b.title}</div>
+							<div className='book-authors'><strong>Author: </strong>{b.authors}</div>
 						</div>
 					</li>
 				))}

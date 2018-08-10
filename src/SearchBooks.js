@@ -13,19 +13,25 @@ class SearchBooks extends React.Component {
   }
 
   addBookShelfToSearchResult = (books) => {
-    let all_Books = this.props.booklist
-    for (let book of books) {
-      book.shelf = "none"
-    }
+    if(typeof books !== "undefined" && books !==0 && books.length !== null && books.length > 0){
+      let all_Books = this.props.booklist
+      for (let book of books) {
+        book.shelf = "none"
+      }
 
-    for (let book of books) {
-      for (let b of all_Books) {
-        if (b.id === book.id) {
-          book.shelf = b.shelf
+      for (let book of books) {
+        for (let b of all_Books) {
+          if (b.id === book.id) {
+            book.shelf = b.shelf
+          }
         }
       }
+
+      return books
+
+    }else{
+      this.setState({query: ''})
     }
-    return books
   } 
 
   updateQuery = (query) => {
@@ -43,10 +49,8 @@ class SearchBooks extends React.Component {
   render() { 
     let showingBooks
 
-    if(this.state.query && this.state.query !== ''){
-      //const match = new RegExp(escaepRegExp(this.state.query, 'i'))
-      //showingBooks = this.state.searchresult.filter((book) => match.test( book.title ))
-      showingBooks = this.state.searchresult.filter((book) => book.title || book.subtitle)
+    if(this.state.query && this.state.query !== '' && this.state.searchresult !== undefined){
+      showingBooks = this.state.searchresult.filter((book) => book.title)
 
     }else{
       showingBooks = this.props.booklist
@@ -61,7 +65,12 @@ class SearchBooks extends React.Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            <ListBooks booklist={showingBooks} onChangeShelf={this.props.onChange} />
+            {this.state.searchresult !== undefined && (
+              <ListBooks booklist={showingBooks} onChangeShelf={this.props.onChange} />
+            )}
+            {this.state.searchresult === undefined && (
+              <p className="search-books-error">Your search does not contain any results. Please try another searchterm</p>
+            )}
           </ol>
         </div>      
       </div>
