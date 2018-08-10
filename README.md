@@ -4,8 +4,6 @@ This is the example Project from the FEND Udacity Nanodegree build in React.
 
 Based on a starter code we should create a MyReads App. 
 
-## 
-
 ## Install 
 - Clone this respository
 - cd into myreads directory
@@ -16,6 +14,10 @@ Based on a starter code we should create a MyReads App.
 ## Run Application from build
 - Copy build folder from this repository to your server or a local webserver
 - Open the index.html file in the build folder
+
+## Surge Preview
+- Open http://dysfunctional-sheet.surge.sh/ to see the application in action.
+- Note: Due to surge limitations the 404-page that the app contains does not work on surge.
 
 ## Features and Goals
 
@@ -47,7 +49,6 @@ Based on a starter code we should create a MyReads App.
 - [x] Project handle state correctly
 - [x] JSX is formatted correctly
 
-##
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
@@ -55,4 +56,7 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## Credits
+Thanks to the Team of Udacity, Google and React - To give me the possibility to learn from you ! 
 
